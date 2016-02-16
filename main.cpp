@@ -4,18 +4,18 @@
 #include "Assignment.h"
 #include <list>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
 void main(){
 
-	Assignment newAssignment();
-	newAssignment.
+	
 	
 
 
 
 
 
-
+	
 }

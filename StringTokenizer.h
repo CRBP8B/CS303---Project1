@@ -51,8 +51,8 @@ private:
 	of the next token and end is the end.
 	*/
 	void String_Tokenizer::find_next() {
-		// Find the first character that is not a delimeter
-		/*<snippet id="1" omit="false">*/
+		/* Find the first character that is not a delimeter
+		<snippet id="1" omit="false">*/
 		start = the_source.find_first_not_of(the_delim, end);
 		/*</snippet>*/
 		// Find the next delimeter
