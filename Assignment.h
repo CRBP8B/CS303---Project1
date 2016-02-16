@@ -8,28 +8,28 @@ using namespace std;
 class Assignment{
 
 private:
-	Date dueDate;
-	string description;
-	Date assignedDate;
-	enum status { assigned, completed, late };
+	Date dueDate; //Due date of the assignment
+	string description; //The description of the assignment
+	Date assignedDate; //Date the assignment was assigned
+	enum status { assigned, completed, late }; //The status of the assignment
 	status stat;
 
 public:
 
-	Assignment(){
+	Assignment(){ //Default constructor, setting variables to default values. Note: "assigned" is the default status
 		dueDate = Date();
 		description = "";
 		assignedDate = Date();
 		stat = status::assigned;
 	}
 
-	Assignment(Date initDueDate, string initDesc, Date initAssigned, string inputStat) //add status parameter.
+	Assignment(Date initDueDate, string initDesc, Date initAssigned, string inputStat) // Regular constructor. Notice that the status is input as a STRING
 	{
 		dueDate = initDueDate;
 		description = initDesc;
 		assignedDate =initAssigned;
 
-		int casevar;
+		int casevar; // turn the string into an int value
 		if (inputStat == "assigned")
 			casevar = 1;
 		else if (inputStat == "completed")
@@ -38,12 +38,12 @@ public:
 			casevar = 3;
 		else
 		{
-			throw("That is not a valid status");
+			throw("That is not a valid status"); //throw error if the string cannot be found
 			return;
 		}
 
 
-		switch (casevar)
+		switch (casevar) //Set the correct enum value according to the casevar int
 		{
 		case 1:
 			stat = assigned;
@@ -59,6 +59,7 @@ public:
 
 	}
 
+	/* Getters and setters for all variables*/
 	Date getDueDate()
 	{
 		return dueDate;
@@ -89,7 +90,7 @@ public:
 		assignedDate = newDate;
 	}
 	
-	status getStatus()
+	status getStatus() // notice that it returns the status type
 	{
 		return stat;
 	}
