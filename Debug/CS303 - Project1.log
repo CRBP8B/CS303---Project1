@@ -1,0 +1,39 @@
+﻿Build started 2/18/2016 12:56:23 PM.
+     1>Project "\\kc.umkc.edu\kc-users\home\n\ngm4k4\Desktop\CS303---Project1-master\CS303---Project1-master\CS303 - Project1.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>\\kc.umkc.edu\kc-users\home\n\ngm4k4\desktop\cs303---project1-master\cs303---project1-master\ordered_list.h(24): error C2784: 'bool std::operator <(const std::tuple<_Types...> &,const std::tuple<_Types1...> &)' : could not deduce template argument for 'const std::tuple<_Types...> &' from 'Assignment'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\tuple(480) : see declaration of 'std::operator <'
+                 \\kc.umkc.edu\kc-users\home\n\ngm4k4\desktop\cs303---project1-master\cs303---project1-master\ordered_list.h(21) : while compiling class template member function 'void Ordered_List<Assignment>::insert(const Item_Type &)'
+                 with
+                 [
+                     Item_Type=Assignment
+                 ]
+                 \\kc.umkc.edu\kc-users\home\n\ngm4k4\desktop\cs303---project1-master\cs303---project1-master\assigntracker.h(71) : see reference to function template instantiation 'void Ordered_List<Assignment>::insert(const Item_Type &)' being compiled
+                 with
+                 [
+                     Item_Type=Assignment
+                 ]
+                 \\kc.umkc.edu\kc-users\home\n\ngm4k4\desktop\cs303---project1-master\cs303---project1-master\assigntracker.h(20) : see reference to class template instantiation 'Ordered_List<Assignment>' being compiled
+     1>\\kc.umkc.edu\kc-users\home\n\ngm4k4\desktop\cs303---project1-master\cs303---project1-master\ordered_list.h(24): error C2784: 'bool std::operator <(const std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem *)' : could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'Assignment'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstring(2545) : see declaration of 'std::operator <'
+     1>\\kc.umkc.edu\kc-users\home\n\ngm4k4\desktop\cs303---project1-master\cs303---project1-master\ordered_list.h(24): error C2784: 'bool std::operator <(const _Elem *,const std::basic_string<_Elem,_Traits,_Alloc> &)' : could not deduce template argument for 'const _Elem *' from 'Assignment'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstring(2535) : see declaration of 'std::operator <'
+     1>\\kc.umkc.edu\kc-users\home\n\ngm4k4\desktop\cs303---project1-master\cs303---project1-master\ordered_list.h(24): error C2784: 'bool std::operator <(const std::basic_string<_Elem,_Traits,_Alloc> &,const std::basic_string<_Elem,_Traits,_Alloc> &)' : could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'Assignment'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstring(2525) : see declaration of 'std::operator <'
+     1>\\kc.umkc.edu\kc-users\home\n\ngm4k4\desktop\cs303---project1-master\cs303---project1-master\ordered_list.h(24): error C2784: 'bool std::operator <(const std::move_iterator<_RanIt> &,const std::move_iterator<_RanIt2> &)' : could not deduce template argument for 'const std::move_iterator<_RanIt> &' from 'Assignment'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1997) : see declaration of 'std::operator <'
+     1>\\kc.umkc.edu\kc-users\home\n\ngm4k4\desktop\cs303---project1-master\cs303---project1-master\ordered_list.h(24): error C2784: 'bool std::operator <(const std::reverse_iterator<_RanIt> &,const std::reverse_iterator<_RanIt2> &)' : could not deduce template argument for 'const std::reverse_iterator<_RanIt> &' from 'Assignment'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(1155) : see declaration of 'std::operator <'
+     1>\\kc.umkc.edu\kc-users\home\n\ngm4k4\desktop\cs303---project1-master\cs303---project1-master\ordered_list.h(24): error C2784: 'bool std::operator <(const std::_Revranit<_RanIt,_Base> &,const std::_Revranit<_RanIt2,_Base2> &)' : could not deduce template argument for 'const std::_Revranit<_RanIt,_Base> &' from 'Assignment'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(971) : see declaration of 'std::operator <'
+     1>\\kc.umkc.edu\kc-users\home\n\ngm4k4\desktop\cs303---project1-master\cs303---project1-master\ordered_list.h(24): error C2784: 'bool std::operator <(const std::pair<_Ty1,_Ty2> &,const std::pair<_Ty1,_Ty2> &)' : could not deduce template argument for 'const std::pair<_Ty1,_Ty2> &' from 'Assignment'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\utility(230) : see declaration of 'std::operator <'
+     1>\\kc.umkc.edu\kc-users\home\n\ngm4k4\desktop\cs303---project1-master\cs303---project1-master\ordered_list.h(24): error C2676: binary '<' : 'Assignment' does not define this operator or a conversion to a type acceptable to the predefined operator
+     1>\\kc.umkc.edu\kc-users\home\n\ngm4k4\desktop\cs303---project1-master\cs303---project1-master\ordered_list.h(24): fatal error C1903: unable to recover from previous error(s); stopping compilation
+     1>Done Building Project "\\kc.umkc.edu\kc-users\home\n\ngm4k4\Desktop\CS303---Project1-master\CS303---Project1-master\CS303 - Project1.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.69
