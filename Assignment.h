@@ -2,6 +2,9 @@
 #define ASSIGNMENT_H
 #include "Date.h"
 #include <string>
+#include <fstream>
+#include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -15,6 +18,7 @@ private:
 	status stat;
 
 public:
+
 
 	Assignment(){ //Default constructor, setting variables to default values. Note: "assigned" is the default status
 		dueDate = Date();
@@ -95,9 +99,40 @@ public:
 		return stat;
 	}
 
+	string statusString()
+	{
+		if (stat == assigned)
+			return "assigned";
+		else if (stat == completed)
+			return "completed";
+		else if (stat == late)
+			return "late";
+
+		return "";
+	}
+
+
 	void setStatus(status &newStat)
 	{
 		stat = newStat;
+	}
+
+	string toString()
+	{
+				
+		ostringstream output;
+
+		string commaspace = ", ";
+		string newline = "\n";
+
+		output << dueDate.toString() << commaspace;
+		output << description << commaspace;
+		output << assignedDate.toString() << commaspace;
+		output << (*this).statusString() << newline;
+
+		return output.str();
+		
+
 	}
 	
 };
