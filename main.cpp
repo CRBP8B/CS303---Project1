@@ -14,6 +14,8 @@ void main(){
 	Assignment assignment(Date("1/2/16", US), "hello", Date("1/1/16", US), "assigned");
 	AssignTracker at;
 	at.addAssignment(assignment);
+	at.completeAssignment(Date("1/1/16", US), Date("1/2/16", US));
+
 
 
 	system("pause");
