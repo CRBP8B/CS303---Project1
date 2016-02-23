@@ -1,76 +1,41 @@
-#ifndef ASSIGNTRACKER_H
-#define ASSIGNTRACKER_H
-
 #include <string>
 #include "Date.h"
 #include "StringTokenizer.h"
 #include "Assignment.h"
-#include "Ordered_List.h"
+#include <list>
 #include <iostream>
 #include <fstream>
-#include <sstream>
-
-
 
 using namespace std;
 
 class AssignTracker{
 
 private:
-	Ordered_List<Assignment> assignedList;
-	Ordered_List<Assignment> completedList;
+	list<Assignment> assignedList;
+	list<Assignment> completedList;
 	void keepOrdered();
 
 public:
-	string displayAssignments()
+	string printAssigned();
+	string printCompleted();
+	bool addAssignment(Assignment newAssign)
 	{
-		ostringstream output;
+		newAssign.getAssignedDate().check_valid();  //Check if date is valid
 
-		output << "Assigned: \n";
-		output << this->printAssigned();
-
-		output << "\n\n Completed: \n";
-		output << this->printCompleted();
-
-		return output.str();
-	}
-	string printAssigned()
-	{
-	
-		for (Ordered_List<Assignment>::const_iterator ptr = assignedList.begin(); ptr != assignedList.end(); ++ptr)
-			ptr->toString();
-
-	}
-	string printCompleted()
-	{
-
-		for (Ordered_List<Assignment>::const_iterator ptr = completedList.begin(); ptr != completedList.end(); ++ptr)
-			ptr->toString();
-
-	}
-	bool addAssignment(Assignment newAssign) 
-	{
-		Date duedate = newAssign.getDueDate();
-		Date assigneddate = newAssign.getAssignedDate();
-		duedate.check_valid();
-		assigneddate.check_valid();
-
-		if (duedate <= assigneddate)
+		if (assignedList.empty())    //if empty, just add it to the list, no frills
 		{
-			return false;
-		}
-
-		if (newAssign.getStatus() == 1)
-		{
-			for (Ordered_List<Assignment>::const_iterator ptr = assignedList.begin(); ptr != assignedList.end(); ++ptr)
-			{
-				if (newAssign.getAssignedDate() == ptr->getAssignedDate())
-					return false;
-			}
-
-			assignedList.insert(newAssign);
+			assignedList.push_front(newAssign);
 			return true;
 		}
+
+		list<Assignment>::iterator it = assignedList.begin();
+
+		while (it->getAssignedDate() < newAssign.getAssignedDate() && (it != assignedList.end()))
+		{
+			++it;
+		}
+		assignedList.insert(it,newAssign);
+		return true;
 	}
 	bool completeAssignment(Assignment toBeComp);
 	bool editAssignment(Date filter);
@@ -78,4 +43,3 @@ public:
 	int countLate();
 
 };
-#endif

@@ -3,7 +3,6 @@
 #include "Date.h"
 #include <string>
 #include <fstream>
-#include "Ordered_List.h"
 #include <iostream>
 #include <sstream>
 
@@ -60,6 +59,8 @@ public:
 			stat = late;
 			break;
 		}
+
+
 	}
 
 	/* Getters and setters for all variables*/
@@ -83,7 +84,7 @@ public:
 		description = newDesc;
 	}
 
-	const Date getAssignedDate() const
+	Date getAssignedDate()
 	{
 		return assignedDate;
 	}
@@ -93,12 +94,12 @@ public:
 		assignedDate = newDate;
 	}
 	
-	const status getStatus() const // notice that it returns the status type
+	status getStatus() // notice that it returns the status type
 	{
 		return stat;
 	}
 
-	const string statusString() const
+	string statusString()
 	{
 		if (stat == assigned)
 			return "assigned";
@@ -116,7 +117,7 @@ public:
 		stat = newStat;
 	}
 
-	const string toString() const
+	string toString()
 	{
 				
 		ostringstream output;
@@ -127,7 +128,7 @@ public:
 		output << dueDate.toString() << commaspace;
 		output << description << commaspace;
 		output << assignedDate.toString() << commaspace;
-		output << this->statusString() << newline;
+		output << (*this).statusString() << newline;
 
 		return output.str();
 		
