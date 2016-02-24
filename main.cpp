@@ -11,11 +11,15 @@ using namespace std;
 
 void main(){
 
-	Assignment assignment(Date("1/2/16", US), "hello", Date("1/1/16", US), "assigned");
 	AssignTracker at;
-	at.addAssignment(assignment);
 
+	at.readIn("input.txt");
 
+	at.completeAssignment(Date("4/13/2015"), Date("4/16/15"));
+	cout << "The assigned:" << endl;
+	cout << at.printAssigned();
+	cout << endl << "The completed:"<< endl;
+	cout << at.printCompleted();
 	system("pause");
 	
 	

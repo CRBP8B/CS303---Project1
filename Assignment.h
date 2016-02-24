@@ -33,6 +33,7 @@ public:
 		description = initDesc;
 		assignedDate =initAssigned;
 
+
 		int casevar; // turn the string into an int value
 		if (inputStat == "assigned")
 			casevar = 1;
@@ -112,9 +113,35 @@ public:
 	}
 
 
-	void setStatus(status &newStat)
+	void setStatus(string inputStat)
 	{
-		stat = newStat;
+		int casevar; // turn the string into an int value
+		if (inputStat == "assigned")
+			casevar = 1;
+		else if (inputStat == "completed")
+			casevar = 2;
+		else if (inputStat == "late")
+			casevar = 3;
+		else
+		{
+			throw("That is not a valid status"); //throw error if the string cannot be found
+			return;
+		}
+
+
+		switch (casevar) //Set the correct enum value according to the casevar int
+		{
+		case 1:
+			stat = assigned;
+			break;
+		case 2:
+			stat = completed;
+			break;
+		case 3:
+			stat = late;
+			break;
+		}
+
 	}
 
 	string toString()
@@ -131,8 +158,7 @@ public:
 		output << (*this).statusString() << newline;
 
 		return output.str();
-		
-
+	
 	}
 	
 };

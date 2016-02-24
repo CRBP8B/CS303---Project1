@@ -48,6 +48,7 @@ public:
 		case DateFormat::Standard:
 			return to_string(year) + "/" + to_string(month) + "/" + to_string(day);
 		}
+		return "";
 	}
 
 	/* parse a date according to a given format*/
