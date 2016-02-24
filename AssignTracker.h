@@ -7,6 +7,8 @@
 #include <fstream>
 
 using namespace std;
+#ifndef ASSIGNTRACKER_H
+#define ASSIGNTRACKER_H
 
 class AssignTracker{
 
@@ -264,3 +266,4 @@ public:
 		return lateCount;
 	}
 };
+#endif
