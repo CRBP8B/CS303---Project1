@@ -19,6 +19,11 @@ private:
 		assign.getAssignedDate().check_valid();//Check if date is valid
 		assign.getDueDate().check_valid();
 
+		if (assign.getDueDate() < assign.getAssignedDate())
+		{
+			return;
+		}
+
 		if (completedList.empty())    //if empty, just add it to the list, no frills
 		{
 			completedList.push_front(assign);
@@ -67,12 +72,24 @@ public:
 		newAssign.getAssignedDate().check_valid();  //Check if date is valid
 		newAssign.getDueDate().check_valid();
 		
+		if (newAssign.getDueDate() < newAssign.getAssignedDate())
+		{
+			return false;
+		}
+			
+		if (newAssign.statusString() == "late" || newAssign.statusString() == "completed")
+		{
+			this->addCompleted(newAssign);
+			return true;
+		}
+
 		if (assignedList.empty())    //if empty, just add it to the list, no frills
 		{
 			assignedList.push_front(newAssign);
 			return true;
 		}
 
+		
 		list<Assignment>::iterator it;
 
 		for (it = assignedList.begin(); it != assignedList.end(); ++it)
@@ -123,7 +140,7 @@ public:
 
 		if (assignedList.empty())
 		{
-			throw invalid_argument("list is empty");
+			return false;
 		}
 		list<Assignment>::iterator itr;
 
@@ -134,7 +151,7 @@ public:
 		}
 
 		if (itr == assignedList.end())
-			throw invalid_argument("Not in list");
+			return false;
 
 		Assignment toBeComp = *itr;
 
@@ -154,11 +171,15 @@ public:
 	bool editAssignment(Date assigned, Date newDue = Date(), string newDesc = "")
 	{
 		assigned.check_valid();
-		newDue.check_valid();
+		if (newDue != Date())
+		{
+			newDue.check_valid();
+		}
+		
 
 		if (assignedList.empty())
 		{
-			throw invalid_argument("list is empty");
+			return false;
 		}
 
 		list<Assignment>::iterator itr;
@@ -170,18 +191,17 @@ public:
 		}
 
 		if (itr == assignedList.end())
-			throw invalid_argument("Not in list");
+			return false;
 
-		Assignment toBeEdit = *itr;
 
 		if (newDue != Date())
 		{
-			toBeEdit.setDueDate(newDue);
+			itr->setDueDate(newDue);
 		}
 
 		if (newDesc != "")
 		{
-			toBeEdit.setDescription(newDesc);
+			itr->setDescription(newDesc);
 		}
 
 		return true;

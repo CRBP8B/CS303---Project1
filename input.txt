@@ -1,4 +1,4 @@
-5-12-2015, vectors, 5-9-2015, late
+5-9-2015, vectors, 5-12-2015, late
 4-12-2015, ur mum, 3-11-2015, late
 5-21-2015, copenhagen, 5-18-2015, late
 4-20-2015, constructors, 4-17-2015, late
@@ -8,5 +8,5 @@
 4-16-2015, queues, 4-13-2015, assigned
 5-17-2015, recursion, 5-13-2015, assigned
 2-11-2015, linked lists, 2-2-2015, late
-5-28-2015, balls, 5-22-2015, assigned
+5-28-2015, hi, 5-22-2015, assigned
 3-10-2015, stacks, 3-1-2015, assigned
