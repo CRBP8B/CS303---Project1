@@ -17,6 +17,7 @@ private:
 	enum status { assigned, completed, late }; //The status of the assignment
 	status stat;
 
+
 public:
 
 
@@ -34,7 +35,7 @@ public:
 		assignedDate =initAssigned;
 
 
-		int casevar; // turn the string into an int value
+		int casevar; // turn the string into an int value, 1 for assigned, 2 for completed, 3 for late
 		if (inputStat == "assigned")
 			casevar = 1;
 		else if (inputStat == "completed")
@@ -57,7 +58,7 @@ public:
 			stat = completed;
 			break;
 		case 3:
-			stat = late;
+			stat = late; 
 			break;
 		}
 
@@ -100,7 +101,7 @@ public:
 		return stat;
 	}
 
-	string statusString()
+	string statusString() //This function returns the string form of the status
 	{
 		if (stat == assigned)
 			return "assigned";
@@ -113,7 +114,7 @@ public:
 	}
 
 
-	void setStatus(string inputStat)
+	void setStatus(string inputStat) //Sets the status based on the string input from user
 	{
 		int casevar; // turn the string into an int value
 		if (inputStat == "assigned")
@@ -144,7 +145,7 @@ public:
 
 	}
 
-	string toString()
+	string toString() //returns the Assignment as a string. <duedate>, <description>, <assigneddate>, <statusString()>
 	{
 				
 		ostringstream output;
@@ -155,7 +156,7 @@ public:
 		output << dueDate.toString() << commaspace;
 		output << description << commaspace;
 		output << assignedDate.toString() << commaspace;
-		output << (*this).statusString() << newline;
+		output << (*this).statusString() << newline; //this line returns the status as a string
 
 		return output.str();
 	

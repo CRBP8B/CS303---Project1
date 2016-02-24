@@ -10,10 +10,9 @@ class Menu
 private:
 	AssignTracker tracker;
 public:
-	void printAll()
+	string printAll()
 	{
-		tracker.printAssigned();
-		tracker.printCompleted();
+		return (tracker.printAssigned() + tracker.printCompleted());
 	}
 
 	bool addAssignment(Assignment assign)
@@ -43,7 +42,7 @@ public:
 
 	string printNumberLate()
 	{
-		return ("There are " + to_string(numberOfLateAssignments()) + "late assignments\n");
+		return ("There are " + to_string(numberOfLateAssignments()) + " late assignments\n");
 	}
 
 	void saveToFile(string outputFile = "output.txt")
