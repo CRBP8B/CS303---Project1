@@ -26,8 +26,9 @@ void main(){
 	bool loop = true;
 	
 
-	cout << "Which file should the assignments be read from?" << endl; //before we enter the menu, check to what the file is called. Read it in.
+	cout << "Which file should the assignments be read from?" << endl << "--> "; //before we enter the menu, check to what the file is called. Read it in.
 	cin >> inputFile;
+	cout << endl;
 	menu.readFileIn(inputFile);
 
 	while (loop)
@@ -39,11 +40,12 @@ void main(){
 			"3. Edit a due date" << endl <<
 			"4. Edit a description" << endl <<
 			"5. Complete an assignment" << endl <<
-			"6. Retrieve number of late assignments" << endl << endl <<
+			"6. Retrieve number of late assignments" << endl <<
 			"7. Change output file" << endl <<
 			"8. Save to chosen file" << endl <<
-			"0. Exit" << endl;
+			"0. Exit" << endl << endl << "--> ";
 		cin >> answer;
+		cout << endl;
 
 		switch(answer)
 		{
@@ -59,13 +61,13 @@ void main(){
 		}
 		case 2: //2: Create new assignment. Get the attributes from user.
 		{
-			cout << "Enter the due date, in the MM/DD/YYYY format" << endl;
+			cout << "Enter the due date, in the MM/DD/YYYY format:" << endl << "--> ";
 			cin >> dueDate;
-			cout << "Enter the description of the assignment" << endl;
+			cout << endl << "Enter the description of the assignment, no spaces:" << endl << "--> ";
 			cin >> description;
-			cout << "Enter the assigned date, in the MM/DD/YYYY format" << endl;
+			cout << endl << "Enter the assigned date, in the MM/DD/YYYY format:" << endl << "--> ";
 			cin >> assignDate;
-			cout << "Enter the status of the assignment" << endl;
+			cout << "Enter the status of the assignment:" << endl << "--> ";
 			cin >> status;
 
 			menu.addAssignment(Assignment(Date(dueDate), description, Date(assignDate), status));
@@ -73,9 +75,9 @@ void main(){
 		}
 		case 3: //3: Edit the due date of an assignment in the list
 		{
-			cout << "Enter the assigned date of the assignment you would like to edit, MM/DD/YYYY format" << endl;
+			cout << "Enter the assigned date of the assignment you would like to edit, MM/DD/YYYY format:" << endl << "--> ";
 			cin >> assignDate;
-			cout << "Enter the new due date, MM/DD/YYYY format" << endl;
+			cout << endl << "Enter the new due date, MM/DD/YYYY format:" << endl << "--> ";
 			cin >> dueDate;
 
 			menu.editDueDate(assignDate, dueDate);
@@ -83,9 +85,9 @@ void main(){
 		}
 		case 4: //4: Edit the the description of an assignment
 		{
-			cout << "Enter the assigned date of the assignment you would like to edit, MM/DD/YYYY format" << endl;
+			cout << "Enter the assigned date of the assignment you would like to edit, MM/DD/YYYY format:" << endl << "--> ";
 			cin >> assignDate;
-			cout << "Enter the new description" << endl;
+			cout << endl << "Enter the new description:" << endl << "--> ";
 			cin.ignore();
 			getline(cin, description);
 
@@ -94,9 +96,9 @@ void main(){
 		}
 		case 5: //5: Completed an assignment on the assigned list
 		{
-			cout << "Enter the assigned date of the assignment you would like to complete, MM/DD/YYYY format" << endl;
+			cout << "Enter the assigned date of the assignment you would like to complete, MM/DD/YYYY format:" << endl << "--> ";
 			cin >> assignDate;
-			cout << "Enter the date it was completed, MM/DD/YYYY format" << endl;
+			cout << endl << "Enter the date it was completed, MM/DD/YYYY format:" << endl << "--> ";
 			cin >> completeDate;
 		
 			menu.completeAssignment(assignDate, completeDate);
@@ -110,7 +112,7 @@ void main(){
 		}
 		case 7: // 7: Change the name of the outputfile
 		{
-			cout << "Enter the file name that you would like to save to, including extension" << endl;
+			cout << "Enter the file name that you would like to save to, including extension:" << endl << "--> ";
 			cin >> outputFile;
 			break;
 		}
@@ -118,7 +120,7 @@ void main(){
 		{
 			if (outputFile == "") //if there isn't a filename that has been input, ask for the filename
 			{
-				cout << "Enter the file name that you would like to save to, including extension" << endl;
+				cout << "Enter the file name that you would like to save to, including extension:" << endl << "--> ";
 				cin >> outputFile;
 			}
 			menu.saveToFile(outputFile);
@@ -126,14 +128,8 @@ void main(){
 		}
 
 		}
+		cout << endl;
 
 		
 	}
-
-	
-	
-	
-
-
-	
 }
